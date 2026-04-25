@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: believe-deploy
+  labels:
+    app: believe
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: believe
+  template:
+    metadata:
+      labels:
+        app: believe
+    spec:
+      containers:
+      - name: believecont
+        image: rajeshtutta123/Believe:latest
+        ports:
+        - containerPort: 8080
